@@ -1,38 +1,38 @@
-;ВАЖНО!!!! Запускать скрипт, щёлкнув по нему правой кнопкой мыши и выбрав пункт Run with UI Access
+;Р’РђР–РќРћ!!!! Р—Р°РїСѓСЃРєР°С‚СЊ СЃРєСЂРёРїС‚, С‰С‘Р»РєРЅСѓРІ РїРѕ РЅРµРјСѓ РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё Рё РІС‹Р±СЂР°РІ РїСѓРЅРєС‚ Run with UI Access
 
-;Добавляем нужное количество ячеек с заданным названием и выбранным шаблоном
-;Должен быть запущен Стемакс-Администратор, все группы должны быть свёрнуты
+;Р”РѕР±Р°РІР»СЏРµРј РЅСѓР¶РЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЏС‡РµРµРє СЃ Р·Р°РґР°РЅРЅС‹Рј РЅР°Р·РІР°РЅРёРµРј Рё РІС‹Р±СЂР°РЅРЅС‹Рј С€Р°Р±Р»РѕРЅРѕРј
+;Р”РѕР»Р¶РµРЅ Р±С‹С‚СЊ Р·Р°РїСѓС‰РµРЅ РЎС‚РµРјР°РєСЃ-РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ, РІСЃРµ РіСЂСѓРїРїС‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ СЃРІС‘СЂРЅСѓС‚С‹
 
 #NoEnv
 #SingleInstance force
 
-Gui, +AlwaysOnTop		; Окошко будет поверх всех окон, чтобы не переводить Администратора из полноэкранного режима.
+Gui, +AlwaysOnTop		; РћРєРѕС€РєРѕ Р±СѓРґРµС‚ РїРѕРІРµСЂС… РІСЃРµС… РѕРєРѕРЅ, С‡С‚РѕР±С‹ РЅРµ РїРµСЂРµРІРѕРґРёС‚СЊ РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР° РёР· РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРіРѕ СЂРµР¶РёРјР°.
 Gui, font, s8, Verdana  ; Set 8-point Verdana.
 
 
 ;^k::
-Gui, Add, Text,, *Имя для создаваемых объектов
+Gui, Add, Text,, *РРјСЏ РґР»СЏ СЃРѕР·РґР°РІР°РµРјС‹С… РѕР±СЉРµРєС‚РѕРІ
 Gui, Add, Edit, r1 vObjName w320,
-Gui, Add, Text, Section , *Начальный номер объекта
+Gui, Add, Text, Section , *РќР°С‡Р°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ РѕР±СЉРµРєС‚Р°
 Gui, Add, Edit, Number y+1 r1 vStartNum  w160, 
-Gui, Add, Text, ys, *Конечный номер объекта
+Gui, Add, Text, ys, *РљРѕРЅРµС‡РЅС‹Р№ РЅРѕРјРµСЂ РѕР±СЉРµРєС‚Р°
 Gui, Add, Edit, Number y+1 r1 vEndNum  w150,
-Gui, Add, Text, xm, Название шаблона (нечувствительно к регистру)
+Gui, Add, Text, xm, РќР°Р·РІР°РЅРёРµ С€Р°Р±Р»РѕРЅР° (РЅРµС‡СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕ Рє СЂРµРіРёСЃС‚СЂСѓ)
 Gui, Add, Edit, y+1 r1 vTemplateName w320,
-Gui, Add, Checkbox, Section vLoadZones, Загружать шлейфы
-Gui, Add, Checkbox, vLoadPersons, Загружать Персонал
-Gui, Add, Checkbox,ys vLoadInOuts, Загружать входы/выходы
-Gui, Add, Checkbox, vLoadSchedule, Загружать расписание
+Gui, Add, Checkbox, Section vLoadZones, Р—Р°РіСЂСѓР¶Р°С‚СЊ С€Р»РµР№С„С‹
+Gui, Add, Checkbox, vLoadPersons, Р—Р°РіСЂСѓР¶Р°С‚СЊ РџРµСЂСЃРѕРЅР°Р»
+Gui, Add, Checkbox,ys vLoadInOuts, Р—Р°РіСЂСѓР¶Р°С‚СЊ РІС…РѕРґС‹/РІС‹С…РѕРґС‹
+Gui, Add, Checkbox, vLoadSchedule, Р—Р°РіСЂСѓР¶Р°С‚СЊ СЂР°СЃРїРёСЃР°РЅРёРµ
 Gui, Add, GroupBox, xm w320 h1 
-Gui, Add, Text, xm, Задержка на создание карточки `nи применение шаблона (сек)
+Gui, Add, Text, xm, Р—Р°РґРµСЂР¶РєР° РЅР° СЃРѕР·РґР°РЅРёРµ РєР°СЂС‚РѕС‡РєРё `nРё РїСЂРёРјРµРЅРµРЅРёРµ С€Р°Р±Р»РѕРЅР° (СЃРµРє)
 Gui, Add, Edit, Number x+2 r1 vDelay  w50, 3
-Gui, Add, Button, xm+110 Default w100, Пуск
+Gui, Add, Button, xm+110 Default w100, РџСѓСЃРє
 Gui, Show, Autosize y0 xCenter
 return
 
 
 
-ButtonПуск:
+ButtonРџСѓСЃРє:
 Gui, Submit, NoHide
 GuiControlGet, LoadZones, ,, LoadZones
 GuiControlGet, LoadPersons, ,, LoadPersons
@@ -40,33 +40,32 @@ GuiControlGet, LoadInOuts, ,, LoadInOuts
 GuiControlGet, LoadSchedule, ,, LoadSchedule
 
 
-
-IfWinExist, STEMAX Администратор
-		{
-			WinActivate
-			Sleep 200
-		}
-		else
-		{
-			MsgBox 64, Ошибка, Запустите Стемакс-Администратор
-			return
-		}
+IfWinExist, STEMAX РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ
+{
+	WinActivate
+	Sleep 200
+}
+else
+{
+	MsgBox 64, РћС€РёР±РєР°, Р—Р°РїСѓСЃС‚РёС‚Рµ РЎС‚РµРјР°РєСЃ-РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ
+	return
+}
 
 CurrentNum := StartNum
 CB_SELECTSTRING := 0x014d
 Template := TemplateName
 
 if ((!ObjName) or (!StartNum) or (!EndNum))
-	{
-		MsgBox 64, Ошибка, Не все обязательные поля(*) заполнены
-		return
-	}	
+{
+	MsgBox 64, РћС€РёР±РєР°, РќРµ РІСЃРµ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ(*) Р·Р°РїРѕР»РЅРµРЅС‹
+	return
+}	
 
 if (StartNum>=EndNum)
-	{
-		MsgBox 64, Ошибка, Начальный номер объекта не может быть больше либо равен конечному
-		return
-	}	
+{
+	MsgBox 64, РћС€РёР±РєР°, РќР°С‡Р°Р»СЊРЅС‹Р№ РЅРѕРјРµСЂ РѕР±СЉРµРєС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРµРЅ РєРѕРЅРµС‡РЅРѕРјСѓ
+	return
+}	
 	
 Loop
 {
@@ -76,17 +75,16 @@ Loop
 	Send, {Down}{Enter}
 	Sleep, 300
 
-	IfWinExist, Создание объекта
+	IfWinExist, РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°
 		WinActivate
 
-	WinWaitActive, Создание объекта,, 5
-		if ErrorLevel
-		{
-    		MsgBox 64, Ошибка, Не найдено окно создания объекта
-			break
-		}
-
+	WinWaitActive, РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°,, 5
 	
+	if ErrorLevel
+	{
+    		MsgBox 64, РћС€РёР±РєР°, РќРµ РЅР°Р№РґРµРЅРѕ РѕРєРЅРѕ СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚Р°
+		break
+	}
 
 	SetControlDelay -1
 
@@ -97,10 +95,9 @@ Loop
 	Sleep, 50
 
 	Control, ChooseString, %Template% , ComboBox1
-	;SendMessage, CB_SELECTSTRING,-1, "Название шаблона" , ComboBox1	; Запасной вариант, указать здесь название шаблона для создания объектов, убрать точку-запятую вначале строки, закомментировать строку выше.
+	;SendMessage, CB_SELECTSTRING,-1, "РќР°Р·РІР°РЅРёРµ С€Р°Р±Р»РѕРЅР°" , ComboBox1	; Р—Р°РїР°СЃРЅРѕР№ РІР°СЂРёР°РЅС‚, СѓРєР°Р·Р°С‚СЊ Р·РґРµСЃСЊ РЅР°Р·РІР°РЅРёРµ С€Р°Р±Р»РѕРЅР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РѕР±СЉРµРєС‚РѕРІ, СѓР±СЂР°С‚СЊ С‚РѕС‡РєСѓ-Р·Р°РїСЏС‚СѓСЋ РІРЅР°С‡Р°Р»Рµ СЃС‚СЂРѕРєРё, Р·Р°РєРѕРјРјРµРЅС‚РёСЂРѕРІР°С‚СЊ СЃС‚СЂРѕРєСѓ РІС‹С€Рµ.
 	Sleep, 100
 	
-
 	if (LoadZones = 1)
 	{
 		ControlClick , Button2,,,Left, 1
@@ -127,7 +124,7 @@ Loop
 	
 	ControlClick, Button6
 
-	IfWinExist, Ошибка
+	IfWinExist, РћС€РёР±РєР°
 		break
 	if (CurrentNum>=EndNum)
 		break
@@ -135,5 +132,6 @@ Loop
 
 	Sleep, Delay*1000
 }
-MsgBox 64, Конец, Скрипт выполнен, 2
+
+MsgBox 64, РљРѕРЅРµС†, РЎРєСЂРёРїС‚ РІС‹РїРѕР»РЅРµРЅ, 2
 return
